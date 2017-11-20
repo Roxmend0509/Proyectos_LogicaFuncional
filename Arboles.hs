@@ -1,3 +1,7 @@
+--Node 5 (Node 3 (Node 1 EmptyTree EmptyTree) (Node 4 EmptyTree EmptyTree)) (Node 7 (Node 6 EmptyTree EmptyTree) (Node 8 EmptyTree EmptyTree))
+
+--Node 5 (Node 3 (Node 1 (Node 0 EmptyTree EmptyTree) EmptyTree) (Node 4 EmptyTree EmptyTree)) (Node 4(Node 6 (Node 7 EmptyTree EmptyTree) EmptyTree) (Node 9 EmptyTree EmptyTree))
+
 data Tree a = EmptyTree | Node a (Tree a) (Tree a) deriving (Show,Read,Eq)
 
 
@@ -33,4 +37,9 @@ profundidad (Node x i d)= 1 +max (profundidad i) (profundidad d)
 inorden :: Tree a -> [a]
 inorden EmptyTree = []
 inorden (Node x i d)= inorden i ++(x : inorden d)
+
+nNodos :: Tree a -> Int
+nNodos (EmptyTree)=0
+nNodos (Node x i d)=1+nNodos i+nNodos d
+
 

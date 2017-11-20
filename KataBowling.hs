@@ -1,3 +1,5 @@
+--let arr=[1,4,4,5,6,4,5,5,10,0,1,7,3,6,4,10,2,8,6]
+
 data Frame = Open Int Int
   |Spare Int Int
   |Strike Int Int 
@@ -27,5 +29,5 @@ frameScore (Spare _ y) =   10 + y
 frameScore (Strike x y) =  10 + x + y
 
 
-score :: [Frame] -> Int 
+score :: [Frame] -> Int
 score =sum . fmap frameScore
